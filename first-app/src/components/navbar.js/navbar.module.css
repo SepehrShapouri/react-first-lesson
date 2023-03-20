@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  width: 400px;
+  align-items: center;
+  justify-content: space-between;
+}
+.title {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.cartlength {
+  background-color: #e9d5ff;
+  color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

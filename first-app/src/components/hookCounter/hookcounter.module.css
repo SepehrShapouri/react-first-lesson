@@ -1,0 +1,14 @@
+.counter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    padding: 1rem;
+    color: blue;
+    background-color: black;
+    border: 1px solid blue;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
