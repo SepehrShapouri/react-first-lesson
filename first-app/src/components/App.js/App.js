@@ -28,28 +28,36 @@ class App extends Component {
     this.setState({ products: filteredProducts });
   };
   onIncreament = (id) => {
-    const products = [...this.state.products];
-    const activeProduct = products.find((p) => p.id == id);
-    activeProduct.quantity++;
-    this.setState({ products });
+    const index = this.state.products.findIndex((item)=> item.id == id)
+    const product = {...this.state.products[index]}
+    product.quantity++
+    const products = [...this.state.products]
+    products[index] = product
+    this.setState({products})
   };
   onDecreament = (id) => {
-    const products = [...this.state.products];
-    const activeProduct = products.find((p) => p.id == id);
-    activeProduct.quantity--;
-    if (activeProduct.quantity < 1) {
-      const filteredProducts = products.filter((p) => p.id != activeProduct.id);
-      this.setState({ products: filteredProducts });
-    } else {
-      this.setState({ products });
+    const index = this.state.products.findIndex((item)=>item.id == id)
+    const product = {...this.state.products[index]}
+    product.quantity--
+    let products = [...this.state.products]
+    if(product.quantity < 1){
+      const filteredProducts = products.filter(p=>p.id != product.id)
+      products = filteredProducts
+    }else{
+      products[index] = product
     }
+    this.setState({products})
+
   };
   onBlur = (e, id) => {
     const value = e.target.value;
-    const products = [...this.state.products];
-    const activeProduct = products.find((p) => p.id == id);
-    activeProduct.title = value;
-    this.setState({ products });
+    const index = this.state.products.findIndex((item)=>item.id == id )
+    const product = {...this.state.products[index]}
+    product.title = value
+    const products = [...this.state.products]
+    products[index] = product
+    this.setState({products})
+
   };
   render() {
     return (

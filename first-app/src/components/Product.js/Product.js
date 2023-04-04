@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './product.module.css'
 import { BiTrash } from "react-icons/bi";
+import { useEffect } from 'react';
 const Products = ({model,price,onBlur,onDelete,onIncreament,onDecreament,quantity}) => {
     return(
         <div className={styles.product}>
