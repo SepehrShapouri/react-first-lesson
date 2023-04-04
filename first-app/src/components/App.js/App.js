@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import ClassTimer from "../ClassTimer/ClassTimer";
+import Functiontimer from "../FunctionTimer/Functiontimer";
 import Navbar from "../navbar.js/Navbar";
 import ProductList from "../productList.js/ProductList";
 import styles from "./app.module.css";
@@ -65,7 +66,7 @@ class App extends Component {
     return (
       <div>
         <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "hide" : "show"}</button>
-        {this.state.isShow && <ClassTimer/>}
+        {this.state.isShow && <Functiontimer/>}
       </div>
       
       // <div className={styles.container}>
