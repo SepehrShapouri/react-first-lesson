@@ -5,4 +5,4 @@ import HookUser from "./components/HookUser/HookUser";
 import Shop from "./components/shop.js/Shop";
 import ClassCounter from "./components/classCounter/ClassCounter";
 import FunctionalCount from "./components/functionalCounter/FunctionalCounter";
-ReactDOM.render(<FunctionalCount/>, document.querySelector("#root"));
+ReactDOM.render(<App/>, document.querySelector("#root"));

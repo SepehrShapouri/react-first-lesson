@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import ClassTimer from "../ClassTimer/ClassTimer";
 import Navbar from "../navbar.js/Navbar";
 import ProductList from "../productList.js/ProductList";
 import styles from "./app.module.css";
@@ -10,6 +11,7 @@ class App extends Component {
       { title: "puma", price: "2299", id: 3, quantity: 3 },
       { title: "vans", price: "2199", id: 4, quantity: 4 },
     ],
+    isShow:true
   };
   onClick = (price = 199) => {
     this.setState({
@@ -61,17 +63,22 @@ class App extends Component {
   };
   render() {
     return (
-      <div className={styles.container}>
-        <Navbar value={this.state.products.length} />
-        <ProductList
-          products={this.state.products}
-          onClick={this.onClick}
-          onDelete={this.onDelete}
-          onIncreament={this.onIncreament}
-          onDecreament={this.onDecreament}
-          onBlur={this.onBlur}
-        />
+      <div>
+        <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "hide" : "show"}</button>
+        {this.state.isShow && <ClassTimer/>}
       </div>
+      
+      // <div className={styles.container}>
+      //   <Navbar value={this.state.products.length} />
+      //   <ProductList
+      //     products={this.state.products}
+      //     onClick={this.onClick}
+      //     onDelete={this.onDelete}
+      //     onIncreament={this.onIncreament}
+      //     onDecreament={this.onDecreament}
+      //     onBlur={this.onBlur}
+      //   />
+      // </div>
     );
   }
 }
