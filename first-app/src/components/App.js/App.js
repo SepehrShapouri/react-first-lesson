@@ -6,6 +6,7 @@ import Navbar from "../navbar.js/Navbar";
 import ProductList from "../productList.js/ProductList";
 import HoverCounter from "../HOC/HoverCounter";
 import styles from "./app.module.css";
+import ParentComponent from "../PureMemoComp/ParentComp";
 class App extends Component {
   state = {
     products: [
@@ -66,10 +67,11 @@ class App extends Component {
   };
   render() {
     return (
-      <div className={styles.container}>
-        <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "click" : "hover"}</button>
-        {this.state.isShow ? <HoverCounter/> : <ClickCounter/>}
-      </div>
+      <ParentComponent/>
+      // <div className={styles.container}>
+      //   <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "click" : "hover"}</button>
+      //   {this.state.isShow ? <HoverCounter/> : <ClickCounter/>}
+      // </div>
       
       // <div className={styles.container}>
       //   <Navbar value={this.state.products.length} />
