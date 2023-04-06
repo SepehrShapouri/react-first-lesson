@@ -7,6 +7,8 @@ import ProductList from "../productList.js/ProductList";
 import HoverCounter from "../HOC/HoverCounter";
 import styles from "./app.module.css";
 import ParentComponent from "../PureMemoComp/ParentComp";
+import ClassRef from "../Ref/CreateRef";
+import FunctionalRef from "../Ref/UseRef";
 class App extends Component {
   state = {
     products: [
@@ -67,7 +69,7 @@ class App extends Component {
   };
   render() {
     return (
-      <ParentComponent/>
+      <FunctionalRef/>
       // <div className={styles.container}>
       //   <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "click" : "hover"}</button>
       //   {this.state.isShow ? <HoverCounter/> : <ClickCounter/>}
