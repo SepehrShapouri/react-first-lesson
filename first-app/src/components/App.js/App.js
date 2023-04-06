@@ -1,8 +1,10 @@
 import React, { Component, useState } from "react";
 import ClassTimer from "../ClassTimer/ClassTimer";
 import Functiontimer from "../FunctionTimer/Functiontimer";
+import ClickCounter from "../HOC/ClickCounter";
 import Navbar from "../navbar.js/Navbar";
 import ProductList from "../productList.js/ProductList";
+import HoverCounter from "../HOC/HoverCounter";
 import styles from "./app.module.css";
 class App extends Component {
   state = {
@@ -64,9 +66,9 @@ class App extends Component {
   };
   render() {
     return (
-      <div>
-        <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "hide" : "show"}</button>
-        {this.state.isShow && <Functiontimer/>}
+      <div className={styles.container}>
+        <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "click" : "hover"}</button>
+        {this.state.isShow ? <HoverCounter/> : <ClickCounter/>}
       </div>
       
       // <div className={styles.container}>
