@@ -12,6 +12,7 @@ import FunctionalRef from "../Ref/UseRef";
 import InputUser from "../RefPractice/InputRef";
 import CounterProvider from "../Context/CounterProvider";
 import CounterOne from "../Context/CounterOne";
+import CounterReducer from "../reducer/CountReducer";
 class App extends Component {
   state = {
     products: [
@@ -72,10 +73,7 @@ class App extends Component {
   };
   render() {
     return (
-      <CounterProvider>
-        <p>welcome to context</p>
-        <CounterOne/>
-      </CounterProvider>
+  <CounterReducer/>
       // <div className={styles.container}>
       //   <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "click" : "hover"}</button>
       //   {this.state.isShow ? <HoverCounter/> : <ClickCounter/>}
