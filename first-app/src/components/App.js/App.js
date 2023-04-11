@@ -73,7 +73,10 @@ class App extends Component {
   };
   render() {
     return (
-  <CounterReducer/>
+      <CounterProvider>
+        <p>welocme</p>
+        <CounterOne/>
+      </CounterProvider>
       // <div className={styles.container}>
       //   <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "click" : "hover"}</button>
       //   {this.state.isShow ? <HoverCounter/> : <ClickCounter/>}
