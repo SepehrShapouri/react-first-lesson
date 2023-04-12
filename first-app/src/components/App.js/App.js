@@ -1,19 +1,9 @@
 import React, { Component, useState } from "react";
-import ClassTimer from "../ClassTimer/ClassTimer";
-import Functiontimer from "../FunctionTimer/Functiontimer";
-import ClickCounter from "../HOC/ClickCounter";
 import Navbar from "../navbar.js/Navbar";
 import ProductList from "../productList.js/ProductList";
-import HoverCounter from "../HOC/HoverCounter";
 import styles from "./app.module.css";
-import ParentComponent from "../PureMemoComp/ParentComp";
-import ClassRef from "../Ref/CreateRef";
-import FunctionalRef from "../Ref/UseRef";
-import InputUser from "../RefPractice/InputRef";
-import CounterProvider from "../Context/CounterProvider";
-import CounterOne from "../Context/CounterOne";
-import CounterReducer from "../reducer/CountReducer";
-class App extends Component {
+
+class App1 extends Component {
   state = {
     products: [
       { title: "nike", price: "2099", id: 1, quantity: 1 },
@@ -59,7 +49,6 @@ class App extends Component {
       products[index] = product
     }
     this.setState({products})
-
   };
   onBlur = (e, id) => {
     const value = e.target.value;
@@ -73,28 +62,21 @@ class App extends Component {
   };
   render() {
     return (
-      <CounterProvider>
-        <p>welocme</p>
-        <CounterOne/>
-      </CounterProvider>
-      // <div className={styles.container}>
-      //   <button onClick={()=>this.setState({isShow:!this.state.isShow})}>{this.state.isShow ? "click" : "hover"}</button>
-      //   {this.state.isShow ? <HoverCounter/> : <ClickCounter/>}
-      // </div>
-      
-      // <div className={styles.container}>
-      //   <Navbar value={this.state.products.length} />
-      //   <ProductList
-      //     products={this.state.products}
-      //     onClick={this.onClick}
-      //     onDelete={this.onDelete}
-      //     onIncreament={this.onIncreament}
-      //     onDecreament={this.onDecreament}
-      //     onBlur={this.onBlur}
-      //   />
-      // </div>
+      <div className={styles.container}>
+        <Navbar value={this.state.products.length} />
+        <ProductList
+          products={this.state.products}
+          onClick={this.onClick}
+          onDelete={this.onDelete}
+          onIncreament={this.onIncreament}
+          onDecreament={this.onDecreament}
+          onBlur={this.onBlur}
+        />
+      </div>
     );
   }
 }
 
-export default App;
+export default App1;
+
+

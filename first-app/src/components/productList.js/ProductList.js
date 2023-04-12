@@ -2,9 +2,16 @@ import React, { Component } from "react";
 import Navbar from "../navbar.js/Navbar";
 import Products from "../Product.js/Product";
 import styles from "./productList.module.css";
-class ProductList extends Component {
-  renderProducts = ()=>{
-    const {products,onDelete,onIncreament,onDecreament,onBlur,onClick} = this.props
+
+const ProductList = ({
+  products,
+  onDelete,
+  onBlur,
+  onClick,
+  onIncreament,
+  onDecreament,
+}) => {
+  const renderProducts = () => {
     return (
       <div className={styles.container}>
         {products.map((product) => {
@@ -21,21 +28,18 @@ class ProductList extends Component {
             />
           );
         })}
-        <button className={styles.button} onClick={() =>onClick(99)}>
+        <button className={styles.button} onClick={() => onClick(99)}>
           change price
         </button>
       </div>
     );
-  }
-  render() {
-    const {products} = this.props
-    return (
-      <>
-    {!products.lentgh && <h2>cart is empty</h2>}
-    {this.renderProducts()}
+  };
+  return (
+    <>
+      {!products.length && <h2>cart is empty</h2>}
+      {renderProducts()}
     </>
-     )
-  }
-}
+  );
+};
 
 export default ProductList;
