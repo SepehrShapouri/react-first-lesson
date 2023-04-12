@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import Navbar from "../navbar.js/Navbar";
 import ProductList from "../productList.js/ProductList";
 import styles from "./app.module.css";
+import ProductProvider from "../ProductProviders/ProductProvider";
 
 class App1 extends Component {
   state = {
@@ -62,7 +63,8 @@ class App1 extends Component {
   };
   render() {
     return (
-      <div className={styles.container}>
+<ProductProvider>
+<div className={styles.container}>
         <Navbar value={this.state.products.length} />
         <ProductList
           products={this.state.products}
@@ -73,6 +75,7 @@ class App1 extends Component {
           onBlur={this.onBlur}
         />
       </div>
+</ProductProvider>
     );
   }
 }

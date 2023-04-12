@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import Navbar from "../navbar.js/Navbar";
 import Products from "../Product.js/Product";
 import styles from "./productList.module.css";
+import {
+  useProduct,
+  useProductActions,
+} from "../ProductProviders/ProductProvider";
 
-const ProductList = ({
-  products,
-  onDelete,
-  onBlur,
-  onClick,
-  onIncreament,
-  onDecreament,
-}) => {
+const ProductList = () => {
+  const products = useProduct();
+  const { onDelete, onBlur, onClick, onIncreament, onDecreament } =
+    useProductActions();
   const renderProducts = () => {
     return (
       <div className={styles.container}>
