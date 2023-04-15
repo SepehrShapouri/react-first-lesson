@@ -9,8 +9,7 @@ import {
 
 const ProductList = () => {
   const products = useProduct();
-  const { onDelete, onBlur, onClick, onIncreament, onDecreament } =
-    useProductActions();
+  const dispatch = useProductActions();
   const renderProducts = () => {
     return (
       <div className={styles.container}>
@@ -21,14 +20,14 @@ const ProductList = () => {
               price={product.price}
               key={product.id}
               quantity={product.quantity}
-              onDelete={() => onDelete(product.id)}
-              onIncreament={() => onIncreament(product.id)}
-              onDecreament={() => onDecreament(product.id)}
-              onBlur={(e) => onBlur(e, product.id)}
+              onDelete={() => dispatch({type:"remove",id:product.id})}
+              onIncreament={() => dispatch({type:"increament",id:product.id})}
+              onDecreament={() => dispatch({type:"decreament",id:product.id})}
+              onBlur={(e) => dispatch({type:"change",id:product.id,event:e})}
             />
           );
         })}
-        <button className={styles.button} onClick={() => onClick(99)}>
+        <button className={styles.button} onClick={() => dispatch({type:"click"})}>
           change price
         </button>
       </div>
