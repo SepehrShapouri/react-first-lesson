@@ -4,6 +4,7 @@ import ProductList from "../productList.js/ProductList";
 import styles from "./app.module.css";
 import ProductProvider from "../ProductProviders/ProductProvider";
 import Filter from "../filter/Filter";
+import SearchBar from "../../common/search/Search";
 const App = () => {
   return (
     <ProductProvider>

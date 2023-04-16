@@ -1,7 +1,11 @@
-.container{
+.filter{
+    margin-left: 1rem;
+}
+.selectSpan{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+}
+.selectSpan p{
     font-family: sans-serif;
 }

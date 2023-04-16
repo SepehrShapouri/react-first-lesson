@@ -2,26 +2,50 @@ import { useState } from "react";
 import React from "react";
 import { useProductActions } from "../ProductProviders/ProductProvider";
 import styles from "./Filter.module.css";
-import Select from 'react-select';
-const options = [
+import Select from "react-select";
+import SelectComponent from "../../common/Select/Select";
+import SearchBar from "../../common/search/Search";
+const sortOptions = [
   { value: "", label: "All" },
   { value: "L", label: "L" },
   { value: "X", label: "X" },
   { value: "XL", label: "Xl" },
 ];
+const filterOptions = [
+  { value: "", label: "All" },
+  { value: "cheapest", label: "cheapest" },
+  { value: "highest", label: "highest" },
+];
 const Filter = () => {
   const dispatch = useProductActions();
-  const [value, setValue] = useState("");
+  const [filter, setFilter] = useState("");
+  const [sort, setSort] = useState("");
 
-  const changeHandler = (selectedOption) => {
+  const filterHandler = (selectedOption) => {
     dispatch({ type: "filter", selectedOption });
-    setValue(selectedOption);
+    dispatch({ type: "sort", selectedOption: sort });
+    setFilter(selectedOption);
+  };
+  const sortHandler = (selectedOption) => {
+    dispatch({ type: "sort", selectedOption });
+    setSort(selectedOption);
   };
   return (
-      <div className={styles.dropDown}>
-        <p>order based on size</p>
-        <Select options={options} onChange={changeHandler} value={value} className={styles.filter}/>
-      </div>
+    <div className={styles.dropDown}>
+      <SearchBar filter={filter} />
+      <SelectComponent
+        value={filter}
+        onChange={filterHandler}
+        options={sortOptions}
+        title="filter by size"
+      />
+      <SelectComponent
+        value={sort}
+        onChange={sortHandler}
+        options={filterOptions}
+        title="sort by price"
+      />
+    </div>
   );
 };
 
