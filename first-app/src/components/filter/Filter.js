@@ -31,8 +31,9 @@ const Filter = () => {
     setSort(selectedOption);
   };
   return (
+    <section>
+    <SearchBar filter={filter} />
     <div className={styles.dropDown}>
-      <SearchBar filter={filter} />
       <SelectComponent
         value={filter}
         onChange={filterHandler}
@@ -46,6 +47,7 @@ const Filter = () => {
         title="sort by price"
       />
     </div>
+    </section>
   );
 };
 
