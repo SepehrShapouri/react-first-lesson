@@ -2,3 +2,4 @@ node_modules/
 package.json
 *.json
 yarn.lock
+.mmd
